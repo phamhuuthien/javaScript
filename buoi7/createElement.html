@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function createDiv() {
+            var divTag = document.createElement("div");
+            divTag.id = "div1";
+            divTag.className = "dynamicDiv"
+            divTag.innerHTML = "this Html div tag created using javascript dom dynamically";
+            document.body.appendChild(divTag);
+        }
+    </script>
+</head>
+
+<body>
+    <p>
+        <b>click this button to create div element</b>
+        <button id="btn1" type="button" value="Create div" onclick="createDiv();">click here</button>
+    </p>
+</body>
+
+</html>

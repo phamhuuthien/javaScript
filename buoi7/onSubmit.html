@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">dom example</title>
+    <script>
+        function evaluteForm() {
+            var input = document.getElementById('info');
+            var result = document.getElementById('result-form');
+            if (input.value == 42) {
+                result.innerHTML = 'correct answer'
+            } else {
+                result.innerHTML = 'wrong answer'
+            }
+        }
+
+        function evaluteClick() {
+            evaluteForm();
+            var result = document.getElementById('result-form');
+            result.innerHTML = 'you submittted the ' + result.innerHTML;
+        }
+
+        function hint() {
+            var input = document.getElementById('info');
+            input.value = 'guess what the magic number is ...';
+        }
+    </script>
+</head>
+
+<body>
+    <div id="input-form">
+        <label for="info">enter infomation here </label> <input name="info" id="info" type="text"
+            onkeyup="evaluteForm()">
+        <button onClick="evaluteClick()">submit</button>
+        <button onClick="hint()">hint</button>
+
+    </div>
+    <div id="result-form"></div>
+</body>
+
+</html>
