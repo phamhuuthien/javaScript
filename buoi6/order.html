@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>order</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>order Table</h2>
+
+    <table>
+        <thead>
+            <th>masp</th>
+            <th>tensp</th>
+            <th>soluong</th>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Laughing Bacchus Winecellars</td>
+                <td>Yoshi Tannamuri</td>
+                <td>Canada</td>
+                <td>
+                    <button>add</button>
+                    <button>remove</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Magazzini Alimentari Riuniti</td>
+                <td>Giovanni Rovelli</td>
+                <td>Italy</td>
+            </tr> -->
+        </tbody>
+    </table>
+
+    <script>
+        const data = [
+            { id: 1, name: "name 1", quantity: 1 },
+            { id: 2, name: "name 2", quantity: 2 },
+        ]
+
+        const body = document.querySelector("tbody")
+
+
+        const handleRender = () => {
+            data.map((data, index) => {
+                body.innerHTML += `<tr>
+                        <td>${data.id}</td>
+                        <td>${data.name}</td>
+                        <td>${data.quantity}</td>
+                        <td>
+                            <button onclick = handleAdd(${data.id})>add</button>
+                            <button onclick = handleRemove(${data.id})>remove</button>
+                        </td>
+                    </tr>`
+            })
+        }
+        handleRender()
+
+        // const handleAdd = (id) => {
+        //     const result = data.find((item) => item.id === id);
+        //     const result2 = { ...result }
+        //     result2.id = data.length + 1;
+        //     data.push(result2);
+        //     body.innerHTML = ''
+        //     handleRender()
+
+        //     const rs = body.innerHTML += `<tr>
+        //                     <td>${result2.id}</td>
+        //                     <td>${result2.name}</td>
+        //                     <td>${result2.quantity}</td>
+        //                     <td>
+        //                         <button onclick = handleAdd(${result2.id})>add</button>
+        //                         <button onclick = handleRemove(${result2.id})>remove</button>
+        //                     </td>
+        //                 </tr>`
+        //     body.appendChild(rs)
+        //     const addProduct = data.find((data) => {
+        //         data.id === id;
+        //     }
+        //     )
+        //     // console.log(addProduct)
+        // }
+        // const handleRemove = (id) => {
+        //     const result = data.filter((item) => item.id != id);
+        //     data.pop(result);
+        //     body.innerHTML = ''
+
+        //     handleRender()
+        //     // const rs = body.innerHTML = `<tr>
+        //     //                 <td>${result.id}</td>
+        //     //                 <td>${result.name}</td>
+        //     //                 <td>${result.quantity}</td>
+        //     //                 <td>
+        //     //                     <button onclick = handleAdd(${result.id})>add</button>
+        //     //                     <button onclick = handleRemove(${result.id})>remove</button>
+        //     //                 </td>
+        //     //             </tr>`
+        //     // body.removeChild(rs)
+        // }
+
+        const handleAdd = (id) => {
+            const result = data.find((item) => item.id === id);
+            const result2 = { ...result }
+            result2.id = data.length + 1;
+            const tr = document.createElement('tr');
+            data.push(result2);
+            tr.innerHTML = `
+                            <td>${result2.id}</td>
+                            <td>${result2.name}</td>
+                            <td>${result2.quantity}</td>
+                            <td>
+                                <button onclick = handleAdd(${result2.id})>add</button>
+                                <button onclick = handleRemove(${result2.id})>remove</button>
+                            </td>
+                        `
+            body.appendChild(tr)
+        }
+
+        const handleRemove = (id) => {
+            const result = data.find((item) => item.id === id);
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${result.id}</td>
+                <td>${result.name}</td>
+                <td>${result.quantity}</td>
+                <td>
+                    <button onclick = handleAdd(${result.id})>add</button>
+                    <button onclick = handleRemove(${result.id})>remove</button>
+                    </td>
+                    `
+            data.pop(result);
+            body.removeChild(tr)
+        }
+
+    </script>
+</body>
+
+</html>

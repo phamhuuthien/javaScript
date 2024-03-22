@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="aingabe" value="hallo1" id="e1">
+    <input type="text" name="aingabe" value="hallo2" id="e2">
+    <input type="text" name="aingabe" value="hallo3" id="e3">
+    <p id="p1"> hello word</p>
+
+
+    <script>
+        var input = document.getElementsByName("aingabe")
+        for (var i = 0; i < input.length; i++) {
+            input[i].value = "olla" + i
+        }
+        document.getElementById("e1").value = "toll";
+        document.getElementById("e1").style.color = "red";
+        document.getElementById("p1").innerHTML = "new text";
+
+    </script>
+</body>
+
+</html>
